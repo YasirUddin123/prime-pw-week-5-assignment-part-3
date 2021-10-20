@@ -86,7 +86,7 @@ console.log('***** Music Collection *****')
     function findByArtist(artist){
       let results = [];
       for(let i = 0; i < collection.length; i++){
-        if(collection.artist[i] === artist){
+        if(collection[i].artist === artist){
           results.push(artist);
         }
       }
@@ -101,11 +101,13 @@ console.log('***** Music Collection *****')
 //    Check that for artists with multiple matches, all are found.
 
   console.log(findByArtist('Eric Clapton'));
-  console.log(findbyArtist('Weezer'));
+  console.log(findByArtist('Weezer'));
   console.log(findByArtist('Jay-Z'));
 
     //COMMENTS
+    //the console log weezer didn't work initially because I didn't camelcase 'by' in the function name.
+    //lesson: gotta pay more attention. maybe drink more coffee too.
 
-    //MAKE SURE TO MAKE A COMMIT
+    //MADE A COMMIT!
 
 //STRETCH GOALS!!!!!
