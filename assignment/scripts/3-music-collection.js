@@ -40,13 +40,15 @@ console.log('***** Music Collection *****')
     // -Console.log each album as added using the returned value.
     // -After all are added, console.log the collection array.
 
-    //CODE
+    console.log(addToCollection('American Idiot', 'Green Day', 2004));
+    console.log(addToCollection('Unplugged', 'Eric Clapton', 1992));
+    console.log(addToCollection('Watch the Throne', 'Jay-Z', 2011));
+    console.log(addToCollection('Magna Carta Holy Grail', 'Jay-Z', 2013));
+    console.log(addToCollection('Extra Texture (Read All About It)', 'George Harrison', 1975));
+    console.log(addToCollection('X&Y', 'Coldplay', 2005));
+    console.log(collection);
 
-    //TEST
-
-    //COMMENTS
-
-    //MAKE SURE TO MAKE A COMMIT
+    //MADE A COMMIT!
 
 
 //#4 - Add a function named showCollection. This function should:
