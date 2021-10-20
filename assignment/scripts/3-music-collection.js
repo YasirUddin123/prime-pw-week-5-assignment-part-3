@@ -86,7 +86,7 @@ console.log('***** Music Collection *****')
     function findByArtist(artist){
       let results = [];
       for(let i = 0; i < collection.length; i++){
-        if(collection.artist === artist){
+        if(collection.artist[i] === artist){
           results.push(artist);
         }
       }
@@ -100,6 +100,9 @@ console.log('***** Music Collection *****')
 //    Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection.
 //    Check that for artists with multiple matches, all are found.
 
+  console.log(findByArtist('Eric Clapton'));
+  console.log(findbyArtist('Weezer'));
+  console.log(findByArtist('Jay-Z'));
 
     //COMMENTS
 
