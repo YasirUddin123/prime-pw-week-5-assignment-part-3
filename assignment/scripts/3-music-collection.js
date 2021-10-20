@@ -83,10 +83,17 @@ console.log('***** Music Collection *****')
     // -Return the array with the matching results. If no results are found, return an empty array.
 
     //CODE
+    function findByArtist(artist){
+      let results = [];
+      for(let i = 0; i < collection.length; i++){
+        if(collection.artist === artist){
+          results.push(artist);
+        }
+      }
+      return results;
+    }
 
-    //COMMENTS
-
-    //MAKE SURE TO MAKE A COMMIT
+    //MADE A COMMIT!
 
 
 //#7 - Test the findByArtist function.
