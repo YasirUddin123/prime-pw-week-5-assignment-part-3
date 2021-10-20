@@ -57,10 +57,25 @@ console.log('***** Music Collection *****')
     // -Loop over the array and console.log each album's information formatted like: TITLE by ARTIST, published in YEAR.
 
     //CODE
+    // create a function called showCollection. This will take an array.
+    //   console log number of items in the array
+    //   make a loop statement to loop through the array
+    //     console log each album's information formatted like: 'TITLE by ARTIST, published in YEAR.'
+    //   end the loop statement
+    // end the function
+
+    function showCollection(array){
+      console.log(array.length);
+      for(let i = 0; i < array.length; i++){
+        console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
+      }
+    }
+
 
     //COMMENTS
+    //Attempt #1
 
-    //MAKE SURE TO MAKE A COMMIT
+    //MADE A COMMIT!
 
 
 //#5 - Test the showCollection function.
