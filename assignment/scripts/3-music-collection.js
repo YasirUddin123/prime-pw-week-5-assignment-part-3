@@ -17,11 +17,6 @@ console.log('***** Music Collection *****')
     // -Return the newly created object
 
     //CODE
-    // Create a function called addtoCollection that takes in title, artist, and yearPublished as parameters
-    //   create a new object with title, artist, and yearPublished properties
-    //   add the new object to the END of the collection array created in line 8
-    //   return the new object
-
     function addToCollection(title, artist, yearPublished){
       let object = {title: title, artist: artist, yearPublished: yearPublished};
       collection.push(object);
@@ -57,20 +52,12 @@ console.log('***** Music Collection *****')
     // -Loop over the array and console.log each album's information formatted like: TITLE by ARTIST, published in YEAR.
 
     //CODE
-    // create a function called showCollection. This will take an array.
-    //   console log number of items in the array
-    //   make a loop statement to loop through the array
-    //     console log each album's information formatted like: 'TITLE by ARTIST, published in YEAR.'
-    //   end the loop statement
-    // end the function
-
     function showCollection(array){
       console.log(array.length);
       for(let i = 0; i < array.length; i++){
         console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
       }
     }
-
 
     //COMMENTS
     //Attempt #1
@@ -80,11 +67,13 @@ console.log('***** Music Collection *****')
 
 //#5 - Test the showCollection function.
 
+    console.log(showCollection(collection));
+
 
     //COMMENTS
+    //Checked to make sure it ran on the console
 
-
-    //MAKE SURE TO MAKE A COMMIT
+    //MADE A COMMIT!
 
 
 //#6 - Add a function named findByArtist. This function should:
