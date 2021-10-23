@@ -169,9 +169,55 @@ console.log('***** Music Collection *****')
 
 
     //CODE
+    //********Updated addToCollection function********
+    let newCollection = [];
+
+    function newAddToCollection(title, artist, yearPublished, tracks){
+      let newObject = {
+        title: title,
+        artist: artist,
+        yearPublished: yearPublished,
+        tracks: tracks
+      };
+      newCollection.push(newObject);
+      return newObject;
+    }
 
     //TEST
+    console.log(newAddToCollection('Stadium Acardium', 'RHCP', 2006, [{name:'Dani California', duration:'5:35'}, {name:'Charlie', duration:'4:38'}, {name:'Hump de Bump', duration:'3:33'}]));
+    console.log(newAddToCollection('F.A.M.E.', 'Chris Brown', 2011, [{name:'Deuces', duration:'4:36'}, {name:'No BS', duration:'4:07'}, {name:'Right Here', duration:'4:08'}]));
+    console.log(newAddToCollection('Live in Japan', 'Rodrigo y Gabriela', 2008, [{name:'OK Tokyo', duration:'5:42'}, {name:'Juan Loco', duration:'5:53'}, {name:'Orion', duration:'2:58'}]));
+    console.log(newCollection);
 
-    //COMMENTS
+
+    //********Updated search function********
+    function newSearch(trackName){
+        let newMatch = [];
+        for(let i = 0; i < newCollection.length; i++){
+          for(let k = 0; k < newCollection[i].tracks.length; k++)
+            if(trackName === newCollection[i].tracks[k].name){
+              newMatch.push(newCollection[i].tracks[k].name);
+          }
+       }
+      return newMatch;
+    }
+
+    //TEST
+    console.log(newSearch('Dani California'));
+    console.log(newSearch('No BS'));
+    console.log(newSearch('Look at Me Now'));
+    console.log(newSearch('OK Tokyo'));
+
+    //********Updated showCollection function********
+    function newShowCollection(array){
+      console.log(array.length);
+      for(let i = 0; i < array.length; i++){
+        console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}: ${i++}. ${array[i].tracks.name}: ${array[i].tracks.duration}`);
+      }
+    }
+
+
+    //TEST
+    console.log(newShowCollection(newCollection));
 
     //MAKE A COMMIT
