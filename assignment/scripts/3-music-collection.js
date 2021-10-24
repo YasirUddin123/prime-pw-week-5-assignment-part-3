@@ -18,7 +18,7 @@ console.log('***** Music Collection *****')
 
     //CODE
     function addToCollection(title, artist, yearPublished){
-      let object = {title: title, artist: artist, yearPublished: yearPublished};
+      let object = {title, artist, yearPublished};
       collection.push(object);
       return object;
     }
@@ -52,10 +52,17 @@ console.log('***** Music Collection *****')
     // -Loop over the array and console.log each album's information formatted like: TITLE by ARTIST, published in YEAR.
 
     //CODE
+    // function showCollection(array){
+    //   console.log(array.length);
+    //   for(let i = 0; i < array.length; i++){
+    //     console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
+    //   }
+    // }
+
     function showCollection(array){
       console.log(array.length);
-      for(let i = 0; i < array.length; i++){
-        console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
+      for(let item of array){
+        console.log(`${item.title} by ${item.artist}, published in ${item.yearPublished}`);
       }
     }
 
@@ -68,7 +75,6 @@ console.log('***** Music Collection *****')
 //#5 - Test the showCollection function.
 
     console.log(showCollection(collection));
-
 
     //COMMENTS
     //Checked to make sure it ran on the console
@@ -83,10 +89,20 @@ console.log('***** Music Collection *****')
     // -Return the array with the matching results. If no results are found, return an empty array.
 
     //CODE
+    // function findByArtist(artist){
+    //   let results = [];
+    //   for(let i = 0; i < collection.length; i++){
+    //     if(collection[i].artist === artist){
+    //       results.push(artist);
+    //     }
+    //   }
+    //   return results;
+    // }
+
     function findByArtist(artist){
       let results = [];
-      for(let i = 0; i < collection.length; i++){
-        if(collection[i].artist === artist){
+      for(let album of collection){
+        if(album.artist === artist){
           results.push(artist);
         }
       }
@@ -100,9 +116,10 @@ console.log('***** Music Collection *****')
 //    Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection.
 //    Check that for artists with multiple matches, all are found.
 
-  console.log(findByArtist('Eric Clapton'));
-  console.log(findByArtist('Weezer'));
-  console.log(findByArtist('Jay-Z'));
+    //CODE
+    console.log(findByArtist('Eric Clapton'));
+    console.log(findByArtist('Weezer'));
+    console.log(findByArtist('Jay-Z'));
 
     //COMMENTS
     //the console log weezer didn't work initially because I didn't camelcase 'by' in the function name.
@@ -124,20 +141,33 @@ console.log('***** Music Collection *****')
 
 
     //CODE
+    // function search(object){
+    //     let match = [];
+    //     if(object === undefined || Object.keys(object).length === 0 ){
+    //         return collection;
+    //     } else {
+    //     for(let i = 0; i < collection.length; i++){
+    //       if(object.artist === collection[i].artist && object.yearPublished === collection[i].yearPublished){
+    //         match.push(collection[i].artist, collection[i].yearPublished);
+    //       }
+    //   }
+    // }
+    //   return match;
+    // }
+
     function search(object){
         let match = [];
         if(object === undefined || Object.keys(object).length === 0 ){
             return collection;
         } else {
-        for(let i = 0; i < collection.length; i++){
-          if(object.artist === collection[i].artist && object.yearPublished === collection[i].yearPublished){
-            match.push(collection[i].artist, collection[i].yearPublished);
+        for(let album of collection){
+          if(object.artist === album.artist && object.yearPublished === album.yearPublished){
+            match.push(album.artist, album.yearPublished);
           }
       }
     }
       return match;
     }
-
 
     //TEST
     console.log(search({}));
@@ -149,7 +179,6 @@ console.log('***** Music Collection *****')
     //COMMENTS
     //Object.keys(name of object).length --> gives you length of object, which is the number of properties in the object based on keys.
     //source: https://stackoverflow.com/questions/53107864/how-do-i-find-the-length-of-an-object
-
 
     //MADE A COMMIT!
 
@@ -167,17 +196,16 @@ console.log('***** Music Collection *****')
 //       1. NAME: DURATION
 //       2. NAME: DURATION
 
-
     //CODE
     //********Updated addToCollection function********
     let newCollection = [];
 
     function newAddToCollection(title, artist, yearPublished, tracks){
       let newObject = {
-        title: title,
-        artist: artist,
-        yearPublished: yearPublished,
-        tracks: tracks
+        title,
+        artist,
+        yearPublished,
+        tracks
       };
       newCollection.push(newObject);
       return newObject;
@@ -189,16 +217,27 @@ console.log('***** Music Collection *****')
     console.log(newAddToCollection('Live in Japan', 'Rodrigo y Gabriela', 2008, [{name:'OK Tokyo', duration:'5:42'}, {name:'Juan Loco', duration:'5:53'}, {name:'Orion', duration:'2:58'}]));
     console.log(newCollection);
 
-
     //********Updated search function********
+    // function newSearch(trackName){
+    //     let newMatch = [];
+    //     for(let i = 0; i < newCollection.length; i++){
+    //       for(let k = 0; k < newCollection[i].tracks.length; k++)
+    //         if(trackName === newCollection[i].tracks[k].name){
+    //           newMatch.push(newCollection[i].tracks[k].name);
+    //       }
+    //    }
+    //   return newMatch;
+    // }
+
     function newSearch(trackName){
         let newMatch = [];
-        for(let i = 0; i < newCollection.length; i++){
-          for(let k = 0; k < newCollection[i].tracks.length; k++)
-            if(trackName === newCollection[i].tracks[k].name){
-              newMatch.push(newCollection[i].tracks[k].name);
+        for(let newAlbum of newCollection){
+          for(let name of newAlbum.tracks){
+            if(trackName === name.name){
+              newMatch.push(name.name);
           }
        }
+     }
       return newMatch;
     }
 
@@ -212,10 +251,12 @@ console.log('***** Music Collection *****')
     function newShowCollection(array){
       console.log(array.length);
       for(let i = 0; i < array.length; i++){
-        console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}: ${i++}. ${array[i].tracks.name}: ${array[i].tracks.duration}`);
+        console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}:`);
+          for(let k = 0; k < array[i].tracks.length; k++){
+                 console.log(`${k + 1}. ${array[i].tracks[k].name}: ${array[i].tracks[k].duration}`);
       }
     }
-
+  }
 
     //TEST
     console.log(newShowCollection(newCollection));
